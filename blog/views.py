@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
-    ListView, 
-    DetailView, 
+    ListView,
+    DetailView,
     CreateView,
     UpdateView,
     DeleteView
@@ -20,6 +20,7 @@ class PostListView(ListView):
     template_name = 'blog/home.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
+    paginate_by = 5
 
 class PostDetailView(DetailView):
     model = Post
